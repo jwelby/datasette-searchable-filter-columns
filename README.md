@@ -4,8 +4,10 @@ Datasette plugin that makes the table filter-column dropdown searchable.
 
 Datasette's table filter form uses a native select containing every column in
 the table. That can be awkward for wide datasets with dozens of columns. This
-plugin sorts that select alphanumerically and adds a small autocomplete input
-while preserving the original Datasette form submission behaviour.
+plugin adds a small autocomplete input over that select so you can type to
+narrow the columns, while preserving the original Datasette form submission
+behaviour. It does not reorder the columns — the original column order is kept,
+since that order can be meaningful.
 
 ## Installation
 

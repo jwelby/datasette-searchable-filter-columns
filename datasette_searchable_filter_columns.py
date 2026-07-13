@@ -80,25 +80,6 @@ SCRIPT = """
   `;
   document.head.appendChild(style);
 
-  const sortSelect = (select) => {
-    const selectedValue = select.value;
-    const options = Array.from(select.options);
-    const fixed = options.filter((option) => option.value === "");
-    const sortable = options.filter((option) => option.value !== "");
-
-    sortable.sort((a, b) =>
-      a.text.localeCompare(b.text, undefined, {
-        numeric: true,
-        sensitivity: "base"
-      })
-    );
-
-    select.replaceChildren(...fixed, ...sortable);
-    if (Array.from(select.options).some((option) => option.value === selectedValue)) {
-      select.value = selectedValue;
-    }
-  };
-
   const addSearchInput = (select, index) => {
     const options = Array.from(select.options).filter(
       (option) => option.value !== ""
@@ -202,7 +183,6 @@ SCRIPT = """
   document
     .querySelectorAll('select[name^="_filter_column"]')
     .forEach((select, index) => {
-      sortSelect(select);
       addSearchInput(select, index);
     });
 })();
