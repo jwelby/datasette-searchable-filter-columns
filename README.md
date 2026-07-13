@@ -1,36 +1,28 @@
 # datasette-searchable-filter-columns
 
-Datasette plugin that makes the table filter-column dropdown searchable.
+Type to search the column dropdown in Datasette's table filters.
 
-Datasette's table filter form uses a native select containing every column in
-the table. That can be awkward for wide datasets with dozens of columns. This
-plugin adds a small autocomplete input over that select so you can type to
-narrow the columns, while preserving the original Datasette form submission
-behaviour. It does not reorder the columns — the original column order is kept,
-since that order can be meaningful.
+Datasette's table filter lists every column in one dropdown, which gets
+unwieldy on wide tables. This plugin turns that dropdown into a search box:
+start typing and the list narrows to matching columns. Columns stay in their
+original order, and filters are submitted exactly as before.
 
 ## Installation
 
-Install this plugin in the same environment as Datasette:
+Install it into the same environment as Datasette:
 
 ```bash
 datasette install datasette-searchable-filter-columns
 ```
 
-For local development from this checkout:
-
-```bash
-pip install -e . --no-build-isolation
-```
-
 ## Usage
 
-Run Datasette as normal:
+Run Datasette as usual and open any table:
 
 ```bash
 datasette data.db
 ```
 
-On table pages, the filter column selector is replaced by a searchable input.
-Typing narrows the available column names, and selecting a column updates the
-underlying Datasette select used when the filter form is submitted.
+In the table's filter row, the column selector is now a search box — type part
+of a column name to narrow the list, pick one, and add your filter as normal.
+It works automatically; there's nothing to configure.
