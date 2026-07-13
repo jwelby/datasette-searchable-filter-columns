@@ -26,3 +26,18 @@ datasette data.db
 In the table's filter row, the column selector is now a search box — type part
 of a column name to narrow the list, pick one, and add your filter as normal.
 It works automatically; there's nothing to configure.
+
+## For developers
+
+Clone this repository and install your local copy in editable mode, so your
+edits take effect without reinstalling:
+
+```bash
+pip install -e . --no-build-isolation
+```
+
+Run the tests:
+
+```bash
+python -m unittest discover
+```
